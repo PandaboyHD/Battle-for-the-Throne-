@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/icon" href="../Images/Icon.png">
+    <title>Battle for the Throne!</title>
+    <link rel="stylesheet" type="text/css" href="../CSS/style.css">
+</head>
+<body>
+<header class="head">
+    <nav>
+        <ul>
+            <li><a href="index.html">Homepage</a></li>
+            <li><a href="about.html">About the Page</a></li>
+        </ul>
+    </nav>
+    <h1>Battle for the Throne!</h1>
+</header>
+<div id="welcome">
+    <div class="container">
+        <div class="containerItem">
+            <h2>Introduction:</h2>
+            Welcome to the world of Battle for the Throne! In this thrilling adventure, your objective is to guide the hero through a perilous journey to either rescue the princess or defeat the Demon King. It is a turn-based 2D game filled with obstacles and challenges, where each player advances one square at a time in an attempt to claim victory.<br><br>
+
+            The stakes are high, as the fate of the princess hangs in the balance. Your victory condition is simple: reach the princess first and touch her to rescue her from the clutches of the Demon King. Alternatively, you can take on the role of the valiant hero and strive to confront the Demon King directly, defeating him to secure the princess's safety.<br><br>
+
+            However, be aware that the game can also be lost. If the Demon King manages to touch or abduct the princess before you reach her, the game will be lost, and darkness will prevail. The path to victory is fraught with challenges, as you navigate through a series of obstacles strategically placed to test your skills and wit.<br><br>
+
+            Prepare yourself for a captivating journey where strategy, timing, and quick thinking are key. Utilize your abilities and make wise decisions to outsmart your opponents and emerge as the victor. Will you be the hero who saves the day, or will darkness reign supreme?<br><br>
+
+            Get ready to embark on an epic adventure where the fate of the princess and the world itself rests in your hands. The journey begins now!
+        </div>
+        <div class="containerItem">
+            <div class="inputItems">
+                <div>Name:</div>
+                <label for="nameInput"></label>
+                <input type="text" id="nameInput" oninput="showPlayername()">
+            </div>
+            <div  class="inputItems">
+                <h2>Map Settings:</h2>
+            </div>
+            <div  class="inputItems">
+                <div>Trees:</div>
+                <label for="obstacle1Count"></label>
+                <input type="number" id="obstacle1Count" value="12">
+            </div>
+            <div  class="inputItems">
+                <div>Stones:</div>
+                <label for="obstacle2Count"></label>
+                <input type="number" id="obstacle2Count" value="12">
+            </div>
+        </div>
+        <div class="containerItem">
+            <img id="startPic" src="../Images/start.png" alt="link and zelda">
+        </div>
+    </div>
+    <footer>
+        <button onclick="createMap()" id="playButton">Play!</button>
+    </footer>
+</div>
+<div id="game">
+    <div id="gameMapContainer">
+        <div id="mapContainer"></div>
+        <footer class="foot hidden">
+            <div class="containerItem">
+            <button id="debugButton">Debug Mode</button>
+            </div>
+            <div class="featureArea">
+                 <div id="timer">
+                Timer: 00:00
+                 </div>
+                 <div id="showName">
+                     Hero:
+                 </div>
+                 <div id="steps">
+                     Steps: 0
+                </div>
+            </div>
+            <div class="containerItem"></div>
+        </footer>
+    </div>
+</div>
+<div id="afterGame">
+    <div id="win1Screen" class="screen hidden">
+        <img src="../Images/Win1.png" alt="You Win 1">
+        <button onclick="location.reload()">Main Menu</button>
+        <button onclick="playAgain()">Play Again</button>
+    </div>
+    <div id="win2Screen" class="screen hidden">
+        <img src="../Images/Win2.png" alt="You Win 2">
+        <button onclick="location.reload()">Main Menu</button>
+        <button onclick="playAgain()">Play Again</button>
+    </div>
+    <div id="loseScreen" class="screen hidden">
+        <img src="../Images/Lose.png" alt="You Lose">
+        <button onclick="location.reload()">Main Menu</button>
+        <button onclick="playAgain()">Play Again</button>
+    </div>
+</div>
+
+<script src="../JS/structure.js"></script>
+</body>
+</html>

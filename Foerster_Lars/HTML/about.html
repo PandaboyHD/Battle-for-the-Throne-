@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/icon" href="../Images/Icon.png">
+    <title>About</title>
+    <link rel="stylesheet" type="text/css" href="../CSS/style.css">
+</head>
+<header class="head">
+    <nav>
+        <ul>
+            <li><a href="index.html">Homepage</a></li>
+            <li><a href="about.html">About the Page</a></li>
+        </ul>
+    </nav>
+    <h1>Battle for the Throne!</h1>
+</header>
+<body>
+<div class="containerAbout">
+    <div class="Questions">
+        <div class="aboutItems">
+        <p>Genutze Klassen + Methoden <br><br>
+            Klasse: Spiel (Game)<br><br>
+            Attribute:<br><br>
+            field: Array - Ein 2D-Array, das das Spielfeld repräsentiert.<br>
+            steps: Number - Die Anzahl der Schritte des Spielers.<br>
+            timerInterval: Number - Die ID des Intervalls für den Timer.<br>
+            obstacle1Count: Number - Die Anzahl der Hindernisse vom Typ 1.<br>
+            obstacle2Count: Number - Die Anzahl der Hindernisse vom Typ 2.<br>
+            heroPosition: Number - Die Position des Helden auf dem Spielfeld.<br>
+            debugMode: Boolean - Ein Flag, das den Debug-Modus aktiviert/deaktiviert.<br><br>
+            Methoden:<br><br>
+            showPlayername(): void - Zeigt den Spielernamen an.<br>
+            startTimer(): void - Startet den Timer.<br>
+            createMap(): void - Erstellt das Spielfeld und platziert die Charaktere.<br>
+            changeImages(obstacle1Count, obstacle2Count):<br>void - Ändert die Hintergrundbilder der Zellen entsprechend der Anzahl der Hindernisse.<br>
+            getRandomIndexes(max, count): Array - Generiert eine zufällige Auswahl von Indizes.<br>
+            getRandomImageFromArray(images):<br> Object - Gibt ein zufälliges Bildobjekt aus einem Array zurück.<br>
+            placeCharacters(): void - Platziert die Charaktere auf dem Spielfeld.<br>
+            isTooClose(cells, newIndex, occupiedIndexes):<br>Boolean - Überprüft, ob eine Zelle zu nah an anderen Charakteren liegt.<br>
+            addClickEvent(cells): void - Fügt den Zellen den Klick-Eventlistener hinzu.<br>
+            moveHero(newIndex): void - Bewegt den Helden auf eine neue Zelle.<br>
+            moveCharacters(): void - Koordiniert die Bewegungen der Charaktere.<br>
+            updateDebugCells(): void - Aktualisiert die Debug-Zellen.<br>
+            isAdjacentCell(positionA, positionB):<br> Boolean - Überprüft, ob zwei Zellen benachbart sind.<br>
+            getRandomIndex(max, occupiedIndexes):<br> Number - Gibt einen zufälligen, nicht belegten Index zurück.<br>
+            toggleDebugMode(): void - Aktiviert/deaktiviert den Debug-Modus.<br>
+            moveEnemy(): void - Bewegt den Feind auf dem Spielfeld.<br>
+            movePrincess(): void - Bewegt die Prinzessin auf dem Spielfeld.<br>
+            checkCollisions(): void - Überprüft auf Kollisionen zwischen Charakteren.<br>
+            generateMap(): void - Generiert das Spielfeld neu.<br>
+            playAgain(): void - Startet ein neues Spiel.<br> </p>
+        </div>
+        <div class="aboutItems">
+            <p>
+                Diskutieren Sie den Ablauf (z.B. Funktionsaufrufe) für Erstellung der Karte<br><br>
+                1. Der Spieler startet das Spiel und klickt auf den "Play"-Button.<br><br>
+                2. Der Event-Listener des "Play"-Buttons ruft die Funktion "createMap" auf.<br><br>
+                3. Die Funktion "createMap" beginnt mit der Überprüfung, ob der Spieler einen Namen eingegeben hat. Wenn kein Name eingegeben wurde, wird eine Warnmeldung angezeigt und das Spiel wird nicht gestartet.<br><br>
+                4. Die Funktion liest die Werte für "obstacle1Count" und "obstacle2Count" aus den entsprechenden Eingabeelementen.<br><br>
+                5. Der Event-Listener für den "Play"-Button wird entfernt, um zu verhindern, dass der Spieler das Spiel erneut startet, während es läuft.<br><br>
+                6. Der welcome Container wird aus dem HTML-Dokument entfernt, um Platz für das Spielfeld zu machen.<br><br>
+                7. Das Fußelement des Spiels wird sichtbar gemacht, um den Timer, den Spielernamen und die Schritte anzuzeigen.<br><br>
+                8. Eine Schleife wird verwendet, um das Spielfeld zu generieren. Dabei werden 10x10 Zellen erstellt und dem zweidimensionalen Array "field" zugewiesen.<br><br>
+                9. Der Timer wird gestartet, indem die Funktion "startTimer" aufgerufen wird. Der Timer aktualisiert die Anzeige der vergangenen Spielzeit im Sekundentakt.<br><br>
+                10. Die Funktion "changeImages" wird aufgerufen, um die Hintergrundbilder der Zellen basierend auf den angegebenen Hinderniszahlen zu ändern.<br><br>
+                11. Die Funktion "generateMap" wird aufgerufen, um die Hindernisse zufällig auf dem Spielfeld zu platzieren.<br><br>
+                12. Die Funktion "placeCharacters" wird aufgerufen, um die Charaktere (Held, Prinzessin, Gegner) auf dem Spielfeld zu platzieren. Dabei werden zufällige Positionen gewählt, die nicht von Hindernissen oder anderen Charakteren besetzt sind.<br><br>
+                13. Nachdem das Spielfeld und die Charaktere platziert sind, ist die Karte erstellt und das Spiel ist bereit zu starten.<br><br>
+            </p>
+        </div>
+        <div class="aboutItems">
+            <p>
+                Diskutieren Sie den Ablauf (z.B. Funktionsaufrufe) für einen Spielzug mit Bewegung des Heros, der Princess und des Enemys<br><br>
+                1. Der Spieler klickt auf eine benachbarte Zelle, um den Helden zu bewegen.<br><br>
+                2. Der Event-Listener der Zelle ruft die Funktion "moveHero" auf und übergibt den Index der ausgewählten Zelle.<br><br>
+                3. In der Funktion "moveHero" wird überprüft, ob die ausgewählte Zelle benachbart zum aktuellen Standort des Helden ist und ob sie kein Hindernis ist.<br><br>
+                4. Wenn die Bedingungen erfüllt sind, wird der aktuelle Standort des Helden aktualisiert, indem das Hintergrundbild der aktuellen Zelle durch das des neuen Standorts ersetzt wird.<br><br>
+                5. Die Funktion "moveCharacters" wird aufgerufen, um die Bewegungen der Prinzessin und des Feindes zu koordinieren. Dabei wird ein Verzögerungseffekt verwendet, um die Reihenfolge der Bewegungen zu steuern.<br><br>
+                6. In der Funktion "movePrincess" wird die Bewegung der Prinzessin bestimmt. Es werden mögliche Bewegungsrichtungen festgelegt, um von dem Feind wegzulaufen. Eine zufällige gültige Bewegungsrichtung wird ausgewählt, und die Prinzessin wird zum neuen Standort bewegt, wenn dieser nicht von einem Hindernis blockiert wird.<br><br>
+                7. In der Funktion "moveEnemy" wird die Bewegung des Feindes bestimmt. Die möglichen Bewegungsrichtungen basieren auf der Position der Prinzessin. Zuerst wird geprüft, ob der direkte Weg zur Prinzessin frei ist. Wenn nicht, werden alternative Wege gesucht, um Hindernisse zu umgehen. Der Feind wird zum neuen Standort bewegt, wenn dieser nicht von einem Hindernis blockiert wird.<br><br>
+                8. Nachdem der Spieler seinen Zug gemacht hat, wird überprüft, ob es zu Kollisionen gekommen ist. Die Funktion "checkCollisions" vergleicht die Positionen des Helden, der Prinzessin und des Feindes und überprüft, ob sie sich auf demselben Feld befinden.<br><br>
+                9. Wenn der Held auf demselben Feld wie der Feind ist, wird das Spiel beendet, der Timer wird gestoppt und ein entsprechender Bildschirm wird angezeigt.<br><br>
+                10. Wenn der Held auf demselben Feld wie die Prinzessin ist, wird das Spiel beendet, der Timer wird gestoppt und ein entsprechender Bildschirm wird angezeigt.<br><br>
+                11. Wenn der Feind auf demselben Feld wie die Prinzessin ist, wird das Spiel beendet, der Timer wird gestoppt und ein entsprechender Bildschirm wird angezeigt.<br><br>
+            </p>
+        </div>
+        <div class="aboutItems">
+            <p>Diskutieren Sie kritisch ihre Ergebnisse. (Probleme - Lösungsansätze u.Ä.)<br><br>
+                1. Es war anfangs schwierig, eine zufällige Karte zu generieren, die Hindernisblöcke enthält und gleichzeitig begehbar ist. <br>
+                Lösungsansatz: Eine Lösung bestand darin, eine Methode zu implementieren, die die Hindernisblöcke platziert und gleichzeitig sicherstellt, dass der Spieler und andere Charaktere Zugang zu allen Teilen der Karte haben. Dies kann durch eine Überprüfung der Erreichbarkeit der Zellen mittels eines Pfadfindungsalgorithmus erreicht werden.<br>
+                2. Es war schwierig, die Bewegung des Hero-Charakters auf dem Spielfeld zu implementieren.<br>
+                Lösungsansatz: Eine Lösung bestand darin, eine Funktion zu schreiben, die die möglichen Bewegungen des Hero-Charakters basierend auf den benachbarten Zellen und den Hindernissen überprüft. Die Funktion sollte sicherstellen, dass der Hero-Charakter sich nur auf begehbare Zellen und auf keinen Hindernissfeldern bewegt und die Bewegung entsprechend aktualisiert.<br>
+                3. Problem: Es war eine Herausforderung, eine effektive Lösung zu finden, um die Prinzessin und den Feind auf dem Spielfeld zu bewegen und ihre Aufgaben zu erfüllen, vom Gegner die Prinzessin zu erreichen und der Prinzessin dem Gegner zu entfliehen.<br>
+                Lösungsansatz: Eine Lösung bestand darin, eine KI-Logik zu implementieren, die die Bewegungen der Prinzessin und des Gegners steuert. Diese Logik könnte basierend wie bei mir auf bestimmten Regeln oder Algorithmen gesteuert werden. Die KI sollte die Positionen anderer Charaktere berücksichtigen und sicherstellen, dass die Prinzessin vom Gegner flieht, während der Feind die Prinzessin verfolgt.<br>
+            </p>
+        </div>
+        <div class="aboutItems">
+            <p>
+                Fragen, die an die KI ChatGPT gestellt wurden sind:<br><br>
+                1. Wie generiere ich Bilder in die Felder von der Map, sodass sie zufällig generiert werden?<br>
+                2. Wie bekomme ich es hin das die Charaktere nicht auf den Hindernissen platziert werden?<br>
+                3. Wie schreibe ich einen Algorithmus, der den Enemy dazu bringt die Princess zu verfolgen und zu berühren?<br>
+                4. Wie schreibe ich einen Algorithmus, derdie Princess dazu bring vom Enemy wegzurennen? <br>
+                5. Wie verbinde ich die Lable funktion damit die ausgewählte Anzahl der Steine und Bäume zu generieren? <br>
+            </p>
+        </div>
+        <div class="aboutItems">
+            <p>
+                Quellenangabe der verwendeten Internetseiten:<br><br>
+                1. https://htmlcheatsheet.com/<br>
+                2. https://htmlcheatsheet.com/css/<br>
+                3. https://htmlcheatsheet.com/js/<br>
+                4. https://www.w3schools.com/<br>
+                5. https://stackoverflow.com/<br>
+                6. https://chat.openai.com/<br>
+                7. https://www.freecodecamp.org/news<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+                Fun Fact: Alle PixelArts wurden selber gezeichnet ^^
+
+            </p>
+        </div>
+    </div>
+</div>
+</body>
+</html>
